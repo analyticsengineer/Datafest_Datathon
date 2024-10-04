@@ -16,6 +16,10 @@ col1.markdown(title_1, unsafe_allow_html=True)
 #title_2 =  '<p style="font-family:sans-serif; color:Grey;">in a simple and elegant way.</p>'
 #col1.markdown(title_2, unsafe_allow_html=True)
 col2.image(image)
+col2.write("Team Members")
+col2.write("Balogun Anuoluwapo")
+col2.write("Babatunde Abdullateef")
+col2.write("Oluwafemi Abiona")
 
 # Setting menu visibility
 st.markdown(""" <style>

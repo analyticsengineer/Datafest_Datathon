@@ -4,7 +4,7 @@ Gender,Gender of the student.,String
 Age,Age of the student in years.,Integer
 School,Type of school the student attends (private or public).,String
 Exam,Type of exam the student is preparing for.,String
-Area,Geographical area where the student resides (urban or rural).,String
+Location,Geographical area where the student resides (urban or rural).,String
 Education,Whether the student has finished secondary school education.,String
 Guardians education,Highest form of education attained by the student's parent or guardian.,String
 Main academy challenge,Primary reason for concern related to WAEC or JAMB exams.,String

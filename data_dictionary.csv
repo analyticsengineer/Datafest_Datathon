@@ -1,0 +1,22 @@
+Column Name,Description,Data Type
+Timestamp,Date and time the data was recorded.,Datetime
+Gender,Gender of the student.,String
+Age,Age of the student in years.,Integer
+School,Type of school the student attends (private or public).,String
+Exam,Type of exam the student is preparing for.,String
+Area,Geographical area where the student resides (urban or rural).,String
+Education,Whether the student has finished secondary school education.,String
+Guardians education,Highest form of education attained by the student's parent or guardian.,String
+Main academy challenge,Primary reason for concern related to WAEC or JAMB exams.,String
+Non-primary academy challenge,Secondary reasons for concern related to WAEC or JAMB exams.,String
+Exam readiness,Student's perceived level of readiness for WAEC or JAMB exams.,String
+Education resources,Steps or resources students are utilizing to prepare for exams.,String
+CBT technical issues,Whether the student faces difficulties using a computer during Computer-Based Testing (CBT).,String
+Exam preparation,How stressful the student finds exam preparation.,String
+Exam malpractice,Whether the student has ever been caught cheating in exams.,Boolean
+After school study,Whether the student studies after school hours.,String
+Exam guidance,Whether the student has access to relevant information about the exams.,String
+Exam confidence,How confident the student feels about WAEC or JAMB exams.,String
+Health issues,Whether the student has health issues that may affect exam preparation or performance.,Boolean
+Family support,Whether the student receives support from their family towards exam preparation.,String
+Recommendation,Student's opinion or recommendations for improving WAEC or JAMB exams.,Text

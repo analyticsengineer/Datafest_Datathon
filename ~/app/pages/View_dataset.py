@@ -1,2 +1,2 @@
 import streamlit as st
-from google.cloud import bigquery
+from google_auth import Google_auth

@@ -7,3 +7,4 @@ streamlit-google-auth==1.1.8
 google-cloud-bigquery==3.26.0
 Google-auth-oauthlib==0.4.1
 python-dotenv==1.0.1
+google-cloud-core==2.4.1

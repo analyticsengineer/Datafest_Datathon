@@ -1,2 +1,2 @@
 import streamlit as st
-from google_auth import Google_auth
+from StreamlitGauth.google_auth import Google_auth

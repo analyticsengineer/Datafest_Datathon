@@ -15,13 +15,4 @@ iframe = f"""
     allowfullscreen>
 </iframe>
 """
-
-# Combine the two iframes in a single HTML output
-combined_iframe = f"""
-<div>
-    {iframe}
-    <iframe src="YOUR_IFRAME_SOURCE" width="100%" height="800" style="border: none;"></iframe>
-</div>
-"""
-
 st.components.v1.html(combined_iframe, height=800)

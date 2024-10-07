@@ -1,2 +1,2 @@
 import streamlit as st
-from StreamlitGauth.google_auth import Google_auth
+from google.oauth2 import id_token

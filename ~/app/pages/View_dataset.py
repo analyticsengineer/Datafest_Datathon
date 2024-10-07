@@ -5,7 +5,7 @@ st.title("Student Response")
 
 # Embed Google Sheet using an iframe
 # Use the published URL of the Google Sheet
-google_sheet_url = "https://docs.google.com/spreadsheets/d/e/YOUR_PUBLISHED_LINK/pubhtml?widget=true&headers=false"
+google_sheet_url = "https://docs.google.com/spreadsheets/d/1bdywDzhqfDHut36grVDXjEkxYsm7YX_66sLYOyHh7w4/edit?usp=sharing"
 
 iframe = f"""
 <iframe 

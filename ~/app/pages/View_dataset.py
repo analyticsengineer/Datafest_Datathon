@@ -4,8 +4,9 @@ import streamlit as st
 st.title("Student Response")
 
 # Embed Google Sheet using an iframe
-# Make sure to set the URL to the published Google Sheet
-google_sheet_url = "https://docs.google.com/spreadsheets/d/1bdywDzhqfDHut36grVDXjEkxYsm7YX_66sLYOyHh7w4/edit?usp=sharing"
+# Use the published URL of the Google Sheet
+google_sheet_url = "https://docs.google.com/spreadsheets/d/e/YOUR_PUBLISHED_LINK/pubhtml?widget=true&headers=false"
+
 iframe = f"""
 <iframe 
     src="{google_sheet_url}" 
@@ -15,4 +16,5 @@ iframe = f"""
     allowfullscreen>
 </iframe>
 """
+
 st.components.v1.html(iframe, height=800)

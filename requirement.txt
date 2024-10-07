@@ -3,3 +3,4 @@ pip==24.2.0
 pandas==2.2.3
 pillow==10.4.0
 google-auth-oauthlib==1.2.1
+streamlit-google-auth==1.1.8

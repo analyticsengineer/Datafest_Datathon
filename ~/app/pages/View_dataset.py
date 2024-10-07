@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Set the title of the app
-st.title("Embed Google Sheet")
+st.title("Student Response")
 
 # Embed Google Sheet using an iframe
 # Make sure to set the URL to the published Google Sheet
@@ -15,4 +15,13 @@ iframe = f"""
     allowfullscreen>
 </iframe>
 """
-st.components.v1.html(iframe, height=600)
+
+# Combine the two iframes in a single HTML output
+combined_iframe = f"""
+<div>
+    {iframe}
+    <iframe src="YOUR_IFRAME_SOURCE" width="100%" height="800" style="border: none;"></iframe>
+</div>
+"""
+
+st.components.v1.html(combined_iframe, height=800)

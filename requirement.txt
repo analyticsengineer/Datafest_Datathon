@@ -5,3 +5,5 @@ pillow==10.4.0
 google-auth-oauthlib==1.2.1
 streamlit-google-auth==1.1.8
 google-cloud-bigquery==3.26.0
+Google-auth-oauthlib==0.4.1
+python-dotenv==1.0.1

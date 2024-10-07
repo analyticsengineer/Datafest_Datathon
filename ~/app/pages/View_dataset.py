@@ -10,7 +10,7 @@ google_sheet_url = "https://docs.google.com/spreadsheets/d/1bdywDzhqfDHut36grVDX
 iframe = f"""
 <iframe 
     src="{google_sheet_url}" 
-    width="800" 
+    width="1080" 
     height="600" 
     frameborder="0" 
     allowfullscreen>

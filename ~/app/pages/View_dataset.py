@@ -15,4 +15,4 @@ iframe = f"""
     allowfullscreen>
 </iframe>
 """
-st.components.v1.html(combined_iframe, height=800)
+st.components.v1.html(iframe, height=800)

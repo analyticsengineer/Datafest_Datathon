@@ -2,14 +2,15 @@ streamlit==1.39.0
 pip==24.2.0
 pandas==2.2.3
 pillow==10.4.0
-numpy==2.1.2
+numpy==1.21.2 --only-binary=:all:  # Pre-built binary for numpy
 matplotlib==3.9.2
 seaborn==0.13.2
 scikit-learn==1.3.0
 nltk==3.9.1
-kmodes==0.12.2 
+kmodes==0.12.2
 wordcloud==1.9.3
 openpyxl==3.1.5
 pickle-mixin
-kmodes
 google-cloud-bigquery==3.26.0
+setuptools>=65.5.0  # For handling builds and metadata generation
+wheel  # To ensure wheel support for binary packages

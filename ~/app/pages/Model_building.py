@@ -1,4 +1,5 @@
 import streamlit as st
+from kmodes.kmodes import KModes
 import  base64
 import pickle
 

@@ -21,7 +21,7 @@ col2.write("Balogun Anuoluwapo")
 col2.write("Babatunde Abdullateef")
 col2.write("Oluwafemi Abiona")
 # Markdown to add a clickable link to your GitHub repository
-st.markdown('Check out the project on [GitHub](https://github.com/analyticsengineer/Datafest_Datathon)')
+col2.markdown('Check out the project on [GitHub](https://github.com/analyticsengineer/Datafest_Datathon)')
 
 # Setting menu visibility
 st.markdown(""" <style>

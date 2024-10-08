@@ -1,5 +1,7 @@
 import streamlit as st
-from kmodes.kmodes import KModes
+#from kmodes.kmodes import KModes
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
 import  base64
 import pickle
 

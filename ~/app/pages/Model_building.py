@@ -32,7 +32,7 @@ st.title('WAEC & JAMB Exam Challenges Prediction')
 try:
     gender = st.selectbox('Gender', ['Male', 'Female'])
     age = st.selectbox('Age Group', ['15-17 years', '18-20 years', '21-23 years', '24 years or older'])
-     school = st.selectbox('School Type', ['Private School', 'Public School'])
+    school = st.selectbox('School Type', ['Private School', 'Public School'])
     exam = st.selectbox('Exam Type', ['WAEC', 'JAMB', 'Both WAEC and JAMB'])
     location = st.selectbox('Location', ['Urban area', 'Rural area', 'Semi-urban area'])
     guardians_education = st.selectbox("Guardian's Education Level", ['Primary education', 'Secondary education', 'Tertiary education (e.g., university, polytechnic)', 'No formal education'])

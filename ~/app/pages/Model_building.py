@@ -38,7 +38,6 @@ try:
     location = st.selectbox('Location', ['Urban area', 'Rural area', 'Semi-urban area'])
     guardians_education = st.selectbox("Guardian's Education Level", ['Primary education', 'Secondary education', 'Tertiary education (e.g., university, polytechnic)', 'No formal education'])
     exam_readiness = st.selectbox('Exam Readiness', ['Very well prepared', 'Somewhat prepared', 'Not well prepared', 'Not prepared at all'])
-    cbt_technical_issues = st.selectbox('CBT Technical Issues', ['Yes, frequently', 'Yes, occasionally', 'No, never'])
     exam_preparation = st.selectbox('Exam Preparation Level', ['Extremely stressful', 'Moderately stressful', 'Not stressful'])
     after_school_study = st.selectbox('After School Study', ['Every day', 'A few times a week', 'Occasionally', 'Rarely or never'])
     exam_guidance = st.selectbox('Exam Guidance Availability', ['Very easy to access', 'Somewhat easy to access', 'Difficult to access', 'Not available at all'])

@@ -10,3 +10,4 @@ nltk==3.9.1
 kmodes 0.12.2
 wordclou==1.9.3
 openpyxl==3.1.5
+pickle-mixin

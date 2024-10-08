@@ -7,7 +7,7 @@ matplotlib==3.9.2
 seaborn==0.13.2
 scikit-learn==1.5.2
 nltk==3.9.1
-kmodes==0.12.2
+kmodes==0.12.2 
 wordclou==1.9.3
 openpyxl==3.1.5
 pickle-mixin

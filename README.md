@@ -43,7 +43,7 @@ This data hackathon aims to explore these challenges using data-driven insights,
 
 - **Programming Languages**: Python
 - **Libraries**: Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
-- **Data Sources**: Public datasets from WAEC, JAMB, World Bank, and local educational bodies
+- **Data Sources**: Questionnaire
 - **Version Control**: Git
 
 ## Getting Started
@@ -51,13 +51,13 @@ This data hackathon aims to explore these challenges using data-driven insights,
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/waec-jamb-challenges.git
+   git clone https://github.com/analyticsengineer/Datafest_Datathon.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd waec-jamb-challenges
+   cd app
    ```
 
 3. Install dependencies:

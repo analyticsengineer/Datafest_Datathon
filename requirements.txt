@@ -11,6 +11,5 @@ kmodes==0.12.2
 wordcloud==1.9.3
 openpyxl==3.1.5
 pickle-mixin
-google-cloud-bigquery==3.26.0
 setuptools>=65.5.0  # For handling builds and metadata generation
 wheel  # To ensure wheel support for binary packages

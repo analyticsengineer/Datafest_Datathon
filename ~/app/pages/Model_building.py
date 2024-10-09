@@ -17,12 +17,39 @@ contents = file_.read()
 data_url = base64.b64encode(contents).decode("utf-8")
 file_.close()
 
+# Encoding function to convert input data into numerical values
+def encode_input(gender, age, school, exam, location, cbt_technical_issues, guardians_education, exam_readiness, exam_preparation, after_school_study, exam_guidance, exam_confidence, health_issues, family_support):
+    # Define encodings (replace these with actual mappings used during training)
+    gender_dict = {'Male': 0, 'Female': 1}
+    age_dict = {'15-17 years': 0, '18-20 years': 1, '21-23 years': 2, '24 years or older': 3}
+    school_dict = {'Private School': 0, 'Public School': 1}
+    exam_dict = {'WAEC': 0, 'JAMB': 1, 'Both WAEC and JAMB': 2}
+    location_dict = {'Urban area': 0, 'Rural area': 1, 'Semi-urban area': 2}
+    cbt_technical_issues_dict = {'Yes, frequently': 0, 'Yes, occasionally': 1, 'No, never': 2}
+    guardians_education_dict = {'Primary education': 0, 'Secondary education': 1, 'Tertiary education': 2, 'No formal education': 3}
+    exam_readiness_dict = {'Very well prepared': 0, 'Somewhat prepared': 1, 'Not well prepared': 2, 'Not prepared at all': 3}
+    exam_preparation_dict = {'Extremely stressful': 0, 'Moderately stressful': 1, 'Not stressful': 2}
+    after_school_study_dict = {'Every day': 0, 'A few times a week': 1, 'Occasionally': 2, 'Rarely or never': 3}
+    exam_guidance_dict = {'Very easy to access': 0, 'Somewhat easy to access': 1, 'Difficult to access': 2, 'Not available at all': 3}
+    exam_confidence_dict = {'Very confident': 0, 'Somewhat confident': 1, 'Not confident': 2, 'Unsure': 3}
+    health_issues_dict = {'Yes': 0, 'No': 1}
+    family_support_dict = {'Very supportive': 0, 'Somewhat supportive': 1, 'Not supportive': 2, 'Indifferent': 3}
+    
+    # Encode the inputs
+    return [
+        gender_dict[gender], age_dict[age], school_dict[school], exam_dict[exam],
+        location_dict[location], cbt_technical_issues_dict[cbt_technical_issues], 
+        guardians_education_dict[guardians_education], exam_readiness_dict[exam_readiness], 
+        exam_preparation_dict[exam_preparation], after_school_study_dict[after_school_study], 
+        exam_guidance_dict[exam_guidance], exam_confidence_dict[exam_confidence], 
+        health_issues_dict[health_issues], family_support_dict[family_support]
+    ]
+
 # Function to make predictions
 def generate_prediction(data):
     try:
-        prediction = trained_model.predict(data)
-        # Customize the output based on the prediction result
-        if prediction[0] == 'Success':
+        prediction = trained_model.predict([data])  # KModes expects a list of lists
+        if prediction[0] == 1:  # Assuming 'Success' is encoded as 1
             return 'The student is predicted to succeed in the exam'
         else:
             return 'The student is predicted to face challenges in the exam'
@@ -49,21 +76,13 @@ try:
     health_issues = st.selectbox('Health Issues', ['Yes', 'No'])
     family_support = st.selectbox('Family Support', ['Very supportive', 'Somewhat supportive', 'Not supportive', 'Indifferent'])
 
-    prediction_result = ""
-
     # Prediction code
     if st.button('Predict'):
-        # Ensure all inputs are in the correct format
-        input_data = [[gender, age, school, exam, location, guardians_education, 
-                       exam_readiness, cbt_technical_issues, exam_preparation, 
-                       after_school_study, exam_guidance, exam_confidence, 
-                       health_issues, family_support]]
+        input_data = encode_input(gender, age, school, exam, location, cbt_technical_issues, guardians_education, 
+                                  exam_readiness, exam_preparation, after_school_study, exam_guidance, 
+                                  exam_confidence, health_issues, family_support)
         
-        # Ensure that the input size matches the model's expected input
-        st.write(f"Input data: {input_data}")  # For debugging, to see the input structure
-
         prediction_result = generate_prediction(input_data)
+        st.success(prediction_result)
 except Exception as e:
     st.error(f"Error: {e}")
-
-st.success(prediction_result)

@@ -3,7 +3,6 @@ from kmodes.kmodes import KModes
 import  base64
 import pickle
 
-st.header("WAEC & JAMB Exam Challenges Prediction")
 
 trained_model = pickle.load(open(
     'kmodes_model.pkl', 'rb'))

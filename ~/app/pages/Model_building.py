@@ -51,7 +51,7 @@ def encode_input(gender, age, school, exam, location, cbt_technical_issues, guar
         health_issues_dict[health_issues], family_support_dict[family_support]
     ]
 
-# Function to generate recommendations based on cluster profiles
+# Define a function to generate recommendations based on cluster profiles
 def generate_recommendations(cluster_label):
     if cluster_label == 0:
         return "Needs foundational support in exam preparation, increased access to exam resources, and stress management strategies."
@@ -85,7 +85,8 @@ def generate_prediction_and_recommendation(data):
         # Format result
         return {
             "prediction": prediction[0],
-            "recommendation": recommendation
+            "recommendation": recommendation,
+            "cluster_label": cluster_label
         }
     except Exception as e:
         return f"Prediction error: {e}"
@@ -135,11 +136,9 @@ try:
                                        health_issues, family_support)
             result = generate_prediction_and_recommendation(input_data)
 
-            if result['prediction'] == 1:
-                st.success(f"The student is predicted to succeed in the exam. Recommendation: {result['recommendation']}")
-            elif result['prediction'] == 0:
-                st.success(f"The student is predicted to face challenges in the exam. Recommendation: {result['recommendation']}")
-            else:
-                st.error('Prediction returned an unexpected value.')
+            # Display recommendations based on cluster label
+            cluster_label = result['cluster_label']
+            recommendation = generate_recommendations(cluster_label)
+            st.success(f"Recommendation: {recommendation}")
 except Exception as e:
     st.error(f"Error: {e}")

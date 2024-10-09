@@ -57,10 +57,13 @@ def encode_input(gender, age, school, exam, location, cbt_technical_issues, guar
 def generate_prediction(data):
     try:
         prediction = trained_model.predict([data])  # KModes expects a list of lists
+        st.write(f"Raw prediction output: {prediction}")  # Debugging: output raw prediction
         if prediction[0] == 1:  # Assuming 'Success' is encoded as 1
             return 'The student is predicted to succeed in the exam.'
-        else:
+        elif prediction[0] == 0:  # Assuming 'Challenges' is encoded as 0
             return 'The student is predicted to face challenges in the exam.'
+        else:
+            return 'Prediction returned an unexpected value.'
     except Exception as e:
         return f"Prediction error: {e}"
 

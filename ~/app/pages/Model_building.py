@@ -76,7 +76,7 @@ try:
     location = st.selectbox('Location', ['Choose', 'Urban area', 'Rural area', 'Semi-urban area'])
     cbt_technical_issues = st.selectbox('Issues With CBT', ['Choose', 'Yes, frequently', 'Yes, occasionally', 'No, never'])
     guardians_education = st.selectbox("Guardian's Education Level", ['Choose', 'Primary education', 
-                                                                     'Secondary education', 'Tertiary education (e.g., university, polytechnic)', 
+                                                                     'Secondary education', 'Tertiary education', 
                                                                      'No formal education'])
     exam_readiness = st.selectbox('Exam Readiness', ['Choose', 'Very well prepared', 'Somewhat prepared', 
                                                       'Not well prepared', 'Not prepared at all'])

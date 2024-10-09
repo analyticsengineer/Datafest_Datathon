@@ -3,7 +3,6 @@ from kmodes.kmodes import KModes
 import base64
 import pickle
 
-
 # Load the trained model
 try:
     trained_model = pickle.load(open('kmodes_model.pkl', 'rb'))
@@ -52,17 +51,42 @@ def encode_input(gender, age, school, exam, location, cbt_technical_issues, guar
         health_issues_dict[health_issues], family_support_dict[family_support]
     ]
 
-# Function to make predictions
-def generate_prediction(data):
+# Function to generate recommendations based on cluster profiles
+def generate_recommendations(cluster_label):
+    if cluster_label == 0:
+        return "Needs foundational support in exam preparation, increased access to exam resources, and stress management strategies."
+    elif cluster_label == 1:
+        return "Requires stress management and more advanced tools for exam preparation to maintain high performance and confidence levels."
+    elif cluster_label == 2:
+        return "Benefits from personalized preparation plans and confidence-building programs, with an emphasis on consistent study routines and leveraging family support."
+    else:
+        return "No specific recommendation."
+
+# Function to predict cluster
+def predict_cluster(data):
     try:
-        prediction = trained_model.predict([data])  # KModes expects a list of lists
-        # Do not print raw prediction output
-        if prediction[0] == 1:  # Assuming 'Success' is encoded as 1
-            return 'The student is predicted to succeed in the exam.'
-        elif prediction[0] == 0:  # Assuming 'Challenges' is encoded as 0
-            return 'The student is predicted to face challenges in the exam.'
-        else:
-            return 'Prediction returned an unexpected value.'
+        cluster_label = trained_model.predict([data])
+        return cluster_label[0]
+    except Exception as e:
+        st.error(f"Cluster prediction error: {e}")
+
+# Function to make predictions and generate recommendations
+def generate_prediction_and_recommendation(data):
+    try:
+        # Get prediction
+        prediction = trained_model.predict([data])
+        
+        # Predict cluster label
+        cluster_label = predict_cluster(data)
+
+        # Generate recommendation based on the cluster
+        recommendation = generate_recommendations(cluster_label)
+
+        # Format result
+        return {
+            "prediction": prediction[0],
+            "recommendation": recommendation
+        }
     except Exception as e:
         return f"Prediction error: {e}"
 
@@ -109,7 +133,13 @@ try:
                                        guardians_education, exam_readiness, exam_preparation, 
                                        after_school_study, exam_guidance, exam_confidence, 
                                        health_issues, family_support)
-            prediction_result = generate_prediction(input_data)
-            st.success(prediction_result)
+            result = generate_prediction_and_recommendation(input_data)
+
+            if result['prediction'] == 1:
+                st.success(f"The student is predicted to succeed in the exam. Recommendation: {result['recommendation']}")
+            elif result['prediction'] == 0:
+                st.success(f"The student is predicted to face challenges in the exam. Recommendation: {result['recommendation']}")
+            else:
+                st.error('Prediction returned an unexpected value.')
 except Exception as e:
     st.error(f"Error: {e}")

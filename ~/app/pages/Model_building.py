@@ -1,20 +1,16 @@
 import streamlit as st
 from kmodes.kmodes import KModes
-import  base64
+import base64
 import pickle
 
-
-trained_model = pickle.load(open(
-    'kmodes_model.pkl', 'rb'))
+# Load the trained model
+trained_model = pickle.load(open('kmodes_model.pkl', 'rb'))
 
 # Image For Page
 file_ = open("image.png", "rb")
 contents = file_.read()
 data_url = base64.b64encode(contents).decode("utf-8")
 file_.close()
-
-
-import streamlit as st
 
 # Function to make predictions
 def generate_prediction(data):
@@ -35,7 +31,8 @@ try:
     school = st.selectbox('School Type', ['Private School', 'Public School'])
     exam = st.selectbox('Exam Type', ['WAEC', 'JAMB', 'Both WAEC and JAMB'])
     location = st.selectbox('Location', ['Urban area', 'Rural area', 'Semi-urban area'])
-    cbt_technical_issues = ('Issues With CBT', ['Yes, frequently', 'Yes, occasionally', 'No, never'])
+    # Change from tuple to selectbox for 'cbt_technical_issues'
+    cbt_technical_issues = st.selectbox('Issues With CBT', ['Yes, frequently', 'Yes, occasionally', 'No, never'])
     guardians_education = st.selectbox("Guardian's Education Level", ['Primary education', 'Secondary education', 'Tertiary education (e.g., university, polytechnic)', 'No formal education'])
     exam_readiness = st.selectbox('Exam Readiness', ['Very well prepared', 'Somewhat prepared', 'Not well prepared', 'Not prepared at all'])
     exam_preparation = st.selectbox('Exam Preparation Level', ['Extremely stressful', 'Moderately stressful', 'Not stressful'])
@@ -49,10 +46,13 @@ try:
 
     # Prediction code
     if st.button('Predict'):
-        prediction_result = generate_prediction([[gender, age, school, exam, location, guardians_education, 
-                                                  exam_readiness, cbt_technical_issues, exam_preparation, 
-                                                  after_school_study, exam_guidance, exam_confidence, 
-                                                  health_issues, family_support]])
+        # Ensure all inputs are in the correct format
+        input_data = [[gender, age, school, exam, location, guardians_education, 
+                       exam_readiness, cbt_technical_issues, exam_preparation, 
+                       after_school_study, exam_guidance, exam_confidence, 
+                       health_issues, family_support]]
+        
+        prediction_result = generate_prediction(input_data)
 except Exception as e:
     st.error(f"Error: {e}")
 

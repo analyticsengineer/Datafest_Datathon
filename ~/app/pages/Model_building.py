@@ -20,7 +20,7 @@ file_.close()
 # Encoding function to convert input data into numerical values
 def encode_input(gender, age, school, exam, location, cbt_technical_issues, guardians_education, exam_readiness, exam_preparation, after_school_study, exam_guidance, exam_confidence, health_issues, family_support):
     # Define encodings (replace these with actual mappings used during training)
-    gender_dict = {'Male': 0, 'Female': 1}
+    gender_dict = {'Choose','Male': 0, 'Female': 1}
     age_dict = {'15-17 years': 0, '18-20 years': 1, '21-23 years': 2, '24 years or older': 3}
     school_dict = {'Private School': 0, 'Public School': 1}
     exam_dict = {'WAEC': 0, 'JAMB': 1, 'Both WAEC and JAMB': 2}

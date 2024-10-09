@@ -3,8 +3,13 @@ from kmodes.kmodes import KModes
 import base64
 import pickle
 
+st.header("WAEC & JAMB Exam Challenges Prediction")
+
 # Load the trained model
-trained_model = pickle.load(open('kmodes_model.pkl', 'rb'))
+try:
+    trained_model = pickle.load(open('kmodes_model.pkl', 'rb'))
+except Exception as e:
+    st.error(f"Error loading model: {e}")
 
 # Image For Page
 file_ = open("image.png", "rb")
@@ -14,12 +19,15 @@ file_.close()
 
 # Function to make predictions
 def generate_prediction(data):
-    prediction = trained_model.predict(data)
-    # Customize the output based on the prediction result
-    if prediction[0] == 'Success':
-        return 'The student is predicted to succeed in the exam'
-    else:
-        return 'The student is predicted to face challenges in the exam'
+    try:
+        prediction = trained_model.predict(data)
+        # Customize the output based on the prediction result
+        if prediction[0] == 'Success':
+            return 'The student is predicted to succeed in the exam'
+        else:
+            return 'The student is predicted to face challenges in the exam'
+    except Exception as e:
+        return f"Prediction error: {e}"
 
 # Main app interface
 st.title('WAEC & JAMB Exam Challenges Prediction')
@@ -31,7 +39,6 @@ try:
     school = st.selectbox('School Type', ['Private School', 'Public School'])
     exam = st.selectbox('Exam Type', ['WAEC', 'JAMB', 'Both WAEC and JAMB'])
     location = st.selectbox('Location', ['Urban area', 'Rural area', 'Semi-urban area'])
-    # Change from tuple to selectbox for 'cbt_technical_issues'
     cbt_technical_issues = st.selectbox('Issues With CBT', ['Yes, frequently', 'Yes, occasionally', 'No, never'])
     guardians_education = st.selectbox("Guardian's Education Level", ['Primary education', 'Secondary education', 'Tertiary education (e.g., university, polytechnic)', 'No formal education'])
     exam_readiness = st.selectbox('Exam Readiness', ['Very well prepared', 'Somewhat prepared', 'Not well prepared', 'Not prepared at all'])
@@ -52,6 +59,9 @@ try:
                        after_school_study, exam_guidance, exam_confidence, 
                        health_issues, family_support]]
         
+        # Ensure that the input size matches the model's expected input
+        st.write(f"Input data: {input_data}")  # For debugging, to see the input structure
+
         prediction_result = generate_prediction(input_data)
 except Exception as e:
     st.error(f"Error: {e}")

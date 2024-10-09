@@ -36,6 +36,7 @@ try:
     school = st.selectbox('School Type', ['Private School', 'Public School'])
     exam = st.selectbox('Exam Type', ['WAEC', 'JAMB', 'Both WAEC and JAMB'])
     location = st.selectbox('Location', ['Urban area', 'Rural area', 'Semi-urban area'])
+    cbt_technical_issues = ('Issues With CBT', ['Yes, frequently', 'Yes, occasionally', 'No, never'])
     guardians_education = st.selectbox("Guardian's Education Level", ['Primary education', 'Secondary education', 'Tertiary education (e.g., university, polytechnic)', 'No formal education'])
     exam_readiness = st.selectbox('Exam Readiness', ['Very well prepared', 'Somewhat prepared', 'Not well prepared', 'Not prepared at all'])
     exam_preparation = st.selectbox('Exam Preparation Level', ['Extremely stressful', 'Moderately stressful', 'Not stressful'])
